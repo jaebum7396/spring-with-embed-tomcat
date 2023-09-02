@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+//JDK 버전 설정
+sourceCompatibility = 17
+targetCompatibility = 17
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation group: 'org.springframework', name: 'spring-web', version: '6.0.0'
+    implementation group: 'org.springframework', name: 'spring-webmvc', version: '6.0.9'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:9.0.50'    // 내장 톰캣 의존성
+    implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
+}
+
+test {
+    useJUnitPlatform()
+}
